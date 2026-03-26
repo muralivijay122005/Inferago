@@ -1,0 +1,210 @@
+@import "tailwindcss";
+
+/* Inter Thin */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Light.woff2") format("woff2");
+  font-weight: 100;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter Regular */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Regular.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter Medium */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Medium.woff2") format("woff2");
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter SemiBold */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-SemiBold.woff2") format("woff2");
+  font-weight: 600;
+  font-style: normal;
+  font-display: swap;
+}
+
+/* Inter Bold */
+@font-face {
+  font-family: "Inter";
+  src: url("/fonts/Inter-Bold.woff2") format("woff2");
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: "Basier";
+  src: url("/fonts/Basier-Mono.woff2") format("woff2");
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+.basier-mono {
+  font-family: "Basier", monospace;
+  font-weight: 400;
+}
+
+.inter-light {
+  font-family: "Inter", sans-serif;
+  font-weight: 100;
+}
+
+.inter-regular {
+  font-family: "Inter", sans-serif;
+  font-weight: 400;
+}
+
+.inter-medium {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+}
+
+.inter-semibold {
+  font-family: "Inter", sans-serif;
+  font-weight: 600;
+}
+
+.inter-bold {
+  font-family: "Inter", sans-serif;
+  font-weight: 700;
+}
+
+/* Perfect Gradient Bottom Border - No focus, fixed thickness */
+.gradient-border-b {
+  position: relative;
+  width: 100%;
+  border-radius: 8px;
+  overflow: hidden;
+  background: #000000;
+  padding: 0px 0px 0px 0px;
+}
+
+.gradient-border-b::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  right: 0;
+  bottom: 2px;
+  height: 3px; /* fixed thickness - no change on focus */
+  background: linear-gradient(to right, #ff3c00, #fff7a0, #0059ff);
+  border-bottom-left-radius: 12px;
+  border-bottom-right-radius: 12px;
+  pointer-events: none;
+}
+
+.gradient-border-b input,
+.gradient-border-b textarea {
+  width: 100%;
+  background: #ffffff0e;
+  border: none;
+  outline: none;
+  color: white;
+  font-size: 1rem;
+  line-height: 1;
+  padding: 12px 14px 16px;
+  border-radius: 8px;
+  min-height: 42px;
+}
+
+.gradient-border-b textarea {
+  min-height: 130px;
+  resize: vertical;
+  padding: 12px 14px;
+}
+
+path {
+  animation: flow 4s linear infinite;
+}
+
+@keyframes flow {
+  to {
+    stroke-dashoffset: 100;
+  }
+}
+
+/* Replace the old blob-linear animation with this smoother one */
+
+@keyframes blob-linear {
+  0% {
+    transform: translate(40px, 30px) rotate(6deg);
+  }
+  25% {
+    transform: translate(-50px, -60px) rotate(-4deg);
+  }
+  50% {
+    transform: translate(-80px, 20px) rotate(8deg);
+  }
+  75% {
+    transform: translate(30px, -40px) rotate(-6deg);
+  }
+  100% {
+    transform: translate(40px, 30px) rotate(6deg);
+  }
+}
+
+.animate-blob-linear {
+  animation: blob-linear 5s ease-in-out infinite;
+}
+
+.bg-grid {
+  position: absolute;
+  inset: 0;
+  background-image: linear-gradient(
+      to right,
+      rgba(255, 255, 255, 0.5) 1px,
+      transparent 1px
+    ),
+    linear-gradient(to bottom, rgba(255, 255, 255, 0.5) 1px, transparent 1px);
+  background-size: 50px 50px;
+
+  mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.9) 15%,
+    transparent 35%,
+    transparent 65%,
+    rgba(255, 255, 255, 0.9) 85%,
+    transparent 100%
+  );
+
+  -webkit-mask-image: linear-gradient(
+    to right,
+    transparent 0%,
+    rgba(255, 255, 255, 0.9) 10%,
+    transparent 45%,
+    transparent 55%,
+    rgba(255, 255, 255, 0.9) 90%,
+    transparent 100%
+  );
+}
+
+/* Realistic Glassmorphism Badge */
+.glass-badge {
+  background: rgba(255, 255, 255, 0.02);
+  backdrop-filter: blur(7px);
+  -webkit-backdrop-filter: blur(7px);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    inset 0 -1px 0 rgba(255, 255, 255, 0.05);
+  transition: all 0.3s ease;
+}
+
+.glass-badge:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: rgba(255, 255, 255, 0.25);
+}

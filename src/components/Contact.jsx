@@ -1,0 +1,84 @@
+// components/Contact.jsx
+import React from "react";
+
+const Contact = () => {
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    alert("Thank you! Our team will respond within 4 hours.");
+  };
+
+  return (
+    <section id="contact" className="py-24 bg-black inter-regular">
+      <div className="max-w-6xl mx-auto px-6">
+        <h2 className="text-center text-white text-sm mb-16">CONTACT US</h2>
+
+        <div className="grid md:grid-cols-2 gap-16 items-center">
+          {/* Left Text */}
+          <div>
+            <h2 className="text-xl mb-6 inter-regular">Let’s Connect</h2>
+            <p className="text-sm inter-light tracking-wide text-white/50 leading-5 max-w-md">
+              Your message matters to us, connect with us
+              <br />
+              and let us respond with thoughtful attention and purposeful
+              support
+            </p>
+
+            <p className="text-sm mt-6 text-white/50 max-w-md underline cursor-pointer hover:text-white transition">
+              Visit Help Center →
+            </p>
+          </div>
+
+          {/* Right Form */}
+          <form onSubmit={handleSubmit} className="space-y-6">
+            <div className="grid grid-cols-2 gap-6 ">
+              <div className="gradient-border-b">
+                <input
+                  type="text"
+                  className="placeholder:text-sm "
+                  placeholder="First Name"
+                  required
+                />
+              </div>
+
+              <div className="gradient-border-b">
+                <input
+                  type="text"
+                  className="placeholder:text-sm"
+                  placeholder="Last Name"
+                  required
+                />
+              </div>
+            </div>
+
+            <div className="gradient-border-b">
+              <input
+                type="email"
+                className="placeholder:text-sm"
+                placeholder="Work Email"
+                required
+              />
+            </div>
+
+            <div className="gradient-border-b">
+              <textarea
+                className="placeholder:text-sm"
+                placeholder="Enter your Message"
+                rows="5"
+                required
+              />
+            </div>
+
+            <button
+              type="submit"
+              className="w-fit py-1.5 px-4 text-sm bg-white text-black rounded-full hover:bg-white/90 transition-all active:scale-95"
+            >
+              Send Message
+            </button>
+          </form>
+        </div>
+      </div>
+    </section>
+  );
+};
+
+export default Contact;
