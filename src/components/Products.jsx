@@ -11,7 +11,7 @@ const Products = () => {
       iconProps: { strokeWidth: 0.5 },
       title: "AI Security SaaS",
       desc: "A cloud-based platform that protects AI systems from threats like data leaks, model attacks, and unauthorized access. It continuously monitors AI behavior, detects risks in real time, and ensures secure, reliable, and compliant AI operations.",
-      useStrokeOnly: false, // filled-style icon
+      useStrokeOnly: false,
     },
     {
       icon: BiCommand,
@@ -22,24 +22,24 @@ const Products = () => {
     },
     {
       icon: LuScanEye,
-      iconProps: { strokeWidth: 2 }, // slightly thicker for better visibility
+      iconProps: { strokeWidth: 2 },
       title: "Monitoring & Suggestion SaaS",
       desc: "A smart monitoring platform that tracks system performance and user activity in real time. It analyzes data using AI and provides actionable insights and suggestions to improve efficiency, reduce issues, and optimize overall performance.",
-      useStrokeOnly: true, // Lucide stroke-based icon
+      useStrokeOnly: true,
     },
   ];
 
   const gradientOffsets = ["left-60", "-left-20", "-left-[80%]"];
 
   return (
-    <section id="products" className="py-24 bg-black inter-regular">
+    <section id="products" className="py-12 md:py-24 bg-black inter-regular">
       <div className="max-w-5xl mx-auto px-6">
         {/* Heading */}
-        <div className="text-center mb-16">
-          <div className="text-white text-sm mb-3">PRODUCTS</div>
+        <div className="text-center mb-8 md:mb-16">
+          <div className="text-white text-sm mb-1 md:mb-3">PRODUCTS</div>
         </div>
 
-        {/* Cards */}
+        {/* Cards - Only this part is modified */}
         <div className="grid md:grid-cols-3 gap-4">
           {products.map((product, i) => {
             const IconComponent = product.icon;
@@ -50,14 +50,15 @@ const Products = () => {
               <div
                 key={i}
                 className="
-                  glass-badge
-                  relative
-                  overflow-hidden
-                  rounded-2xl
-                  p-5
-                  flex
-                  flex-col
-                "
+    glass-badge
+    relative
+    overflow-hidden
+    rounded-2xl
+    p-5
+    flex
+    flex-col
+    max-w-[280px] mx-auto md:max-w-none
+  "
               >
                 {/* Shared gradient background */}
                 <div
@@ -69,13 +70,13 @@ const Products = () => {
                     h-[200px]
                     bg-[linear-gradient(90deg,#FF3300_0%,#FFCB83_40%,#0077FF_85%)]
                     opacity-75
-                    blur-[90px]
+                    blur-[80px]
                     pointer-events-none
                   `}
                 />
 
                 {/* ICON BOX */}
-                <div className="bg-white/5 border border-white/25 relative mb-6 w-fit p-2 rounded-lg overflow-hidden">
+                <div className="bg-white/5 border border-white/25 relative mb-4 w-fit p-2 rounded-lg overflow-hidden">
                   {/* SVG Gradient Definition */}
                   <svg
                     width="0"
@@ -108,9 +109,9 @@ const Products = () => {
                       ...(isStrokeOnly
                         ? { stroke: `url(#${gradientId})` }
                         : {
-                            fill: `url(#${gradientId})`,
-                            stroke: `url(#${gradientId})`,
-                          }),
+                          fill: `url(#${gradientId})`,
+                          stroke: `url(#${gradientId})`,
+                        }),
                     }}
                     {...product.iconProps}
                   />
@@ -128,7 +129,7 @@ const Products = () => {
                 <button
                   className="
                     relative z-10
-                    mt-10
+                    mt-4 md:mt-10
                     px-4
                     py-2
                     text-xs

@@ -10,20 +10,20 @@ const Contact = () => {
   return (
     <section id="contact" className="py-24 bg-black inter-regular">
       <div className="max-w-6xl mx-auto px-6">
-        <h2 className="text-center text-white text-sm mb-16">CONTACT US</h2>
+        <h2 className="text-center text-white text-sm mb-8 md:mb-16">CONTACT US</h2>
 
         <div className="grid md:grid-cols-2 gap-16 items-center">
           {/* Left Text */}
           <div>
-            <h2 className="text-xl mb-6 inter-regular">Let’s Connect</h2>
-            <p className="text-sm inter-light tracking-wide text-white/50 leading-5 max-w-md">
+            <h2 className="text-md mb-2 md:mb-6 inter-regular md:text-left text-center md:-mt-40">Let’s Connect</h2>
+            <p className="text-sm inter-light tracking-wide md:text-left text-center text-white/50 leading-5 max-w-md">
               Your message matters to us, connect with us
               <br />
               and let us respond with thoughtful attention and purposeful
               support
             </p>
 
-            <p className="text-sm mt-6 text-white/50 max-w-md underline cursor-pointer hover:text-white transition">
+            <p className="text-sm mt-6 md:text-left text-center text-white/50 max-w-md underline cursor-pointer hover:text-white transition">
               Visit Help Center →
             </p>
           </div>
@@ -34,7 +34,7 @@ const Contact = () => {
               <div className="gradient-border-b">
                 <input
                   type="text"
-                  className="placeholder:text-sm "
+                  className="placeholder:text-sm"
                   placeholder="First Name"
                   required
                 />

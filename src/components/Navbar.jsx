@@ -1,6 +1,7 @@
 // components/Navbar.jsx
-import React, { useState } from "react";
-import { FaBars, FaTimes } from "react-icons/fa";
+import { useState } from "react";
+import { IoIosClose } from "react-icons/io";
+import { HiOutlineBars3 } from "react-icons/hi2";
 
 const Navbar = () => {
   const [isOpen, setIsOpen] = useState(false);
@@ -78,53 +79,48 @@ const Navbar = () => {
           </button>
         </div>
 
-        {/* Mobile Hamburger */}
+        {/* Mobile Hamburger & Close Button - Same Position */}
         <button
           onClick={() => setIsOpen(!isOpen)}
-          className="md:hidden text-3xl"
+          className="md:hidden flex items-center justify-center w-10 h-10 -mr-4"  // Only this line changed
         >
-          {isOpen ? <FaTimes /> : <FaBars />}
+          {isOpen ? (
+            <IoIosClose size={30} />
+          ) : (
+            <HiOutlineBars3 size={20} />
+          )}
         </button>
       </div>
 
-      {/* Mobile Menu */}
+      {/* Mobile Menu - No changes */}
       {isOpen && (
-        <div className="md:hidden border-t border-white/10 px-6 py-8 flex flex-col gap-6 text-lg font-medium">
-          <button onClick={() => scrollToSection("home")} className="text-left">
-            Home
+        <div className="md:hidden border-t backdrop-blur-lg border-white/10 px-6 py-8 flex flex-col gap-6 text-sm h-screen pt-15">
+          <button onClick={() => scrollToSection("home")}>
+            HOME
           </button>
-          <button
-            onClick={() => scrollToSection("about")}
-            className="text-left"
-          >
-            About
+          <button onClick={() => scrollToSection("about")}>
+            ABOUT
           </button>
-          <button
-            onClick={() => scrollToSection("products")}
-            className="text-left"
-          >
-            Products
+          <button onClick={() => scrollToSection("products")}>
+            PRODUCTS
           </button>
-          <button
-            onClick={() => scrollToSection("contact")}
-            className="text-left"
-          >
-            Contact
+          <button onClick={() => scrollToSection("contact")}>
+            CONTACT
           </button>
-          <a href="#" className="text-left">
-            Docs
+          <a href="#" className="text-center">
+            DOCS
           </a>
 
           <div className="flex flex-col gap-4 pt-6 border-t border-white/10">
             <button
               onClick={() => alert("Login coming soon")}
-              className="w-full py-4 text-white"
+              className="w-full py-2 text-white"
             >
               Login
             </button>
             <button
               onClick={() => scrollToSection("contact")}
-              className="w-full py-4 bg-white text-zinc-950 rounded-2xl font-semibold"
+              className="w-full py-2 bg-white text-black rounded-full"
             >
               Get Started
             </button>
