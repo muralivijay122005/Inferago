@@ -1,5 +1,6 @@
 // components/Flowchart.jsx
-import React from "react";
+
+import React, { useId } from "react";
 import { FiLock } from "react-icons/fi";
 import { LuChartLine, LuScanEye } from "react-icons/lu";
 import { BsPlusLg } from "react-icons/bs";
@@ -25,8 +26,9 @@ const Flowchart = () => {
       <div className="max-w-7xl mx-auto relative z-10 w-full">
 
         {/* ========================= */}
-        {/* DESKTOP VIEW */}
+        {/* DESKTOP VIEW - UNCHANGED */}
         {/* ========================= */}
+
         <div className="relative h-[600px] max-w-[1100px] mx-auto hidden md:block">
 
           {/* SVG CONNECTIONS */}
@@ -35,9 +37,7 @@ const Flowchart = () => {
             viewBox="0 0 1100 600"
             fill="none"
           >
-
             <defs>
-
               <linearGradient id="lineFadeLeft" x1="0%" y1="0%" x2="100%" y2="0%">
                 <stop offset="0%" stopColor="white" stopOpacity="1" />
                 <stop offset="100%" stopColor="white" stopOpacity="0" />
@@ -47,10 +47,9 @@ const Flowchart = () => {
                 <stop offset="0%" stopColor="white" stopOpacity="0" />
                 <stop offset="100%" stopColor="white" stopOpacity="1" />
               </linearGradient>
-
             </defs>
 
-            {/* Left Lines */}
+            {/* LEFT TOP */}
             <g>
               <circle cx="320" cy="190" r="2.5" fill="white" />
               <path
@@ -62,6 +61,7 @@ const Flowchart = () => {
               />
             </g>
 
+            {/* LEFT BOTTOM */}
             <g>
               <circle cx="320" cy="410" r="2.5" fill="white" />
               <path
@@ -73,7 +73,7 @@ const Flowchart = () => {
               />
             </g>
 
-            {/* Right Lines */}
+            {/* RIGHT TOP */}
             <g>
               <circle cx="780" cy="190" r="2.5" fill="white" />
               <path
@@ -85,6 +85,7 @@ const Flowchart = () => {
               />
             </g>
 
+            {/* RIGHT BOTTOM */}
             <g>
               <circle cx="780" cy="410" r="2.5" fill="white" />
               <path
@@ -115,31 +116,20 @@ const Flowchart = () => {
 
               <img src="./Infer_White.png" className="w-14 h-14" alt="Infer" />
 
-              <div className="absolute -top-8 -left-8 text-white text-lg">
-                <BsPlusLg />
-              </div>
-
-              <div className="absolute -top-8 -right-8 text-white text-lg">
-                <BsPlusLg />
-              </div>
-
-              <div className="absolute -bottom-8 -left-8 text-white text-lg">
-                <BsPlusLg />
-              </div>
-
-              <div className="absolute -bottom-8 -right-8 text-white text-lg">
-                <BsPlusLg />
-              </div>
+              <div className="absolute -top-8 -left-8 text-white text-lg"><BsPlusLg /></div>
+              <div className="absolute -top-8 -right-8 text-white text-lg"><BsPlusLg /></div>
+              <div className="absolute -bottom-8 -left-8 text-white text-lg"><BsPlusLg /></div>
+              <div className="absolute -bottom-8 -right-8 text-white text-lg"><BsPlusLg /></div>
 
             </div>
 
           </div>
 
-          {/* FEATURE CARDS - DESKTOP */}
+          {/* FEATURE CARDS DESKTOP */}
+
           <div className="absolute inset-0 pointer-events-none">
 
-            {/* LEFT */}
-            <div className="absolute left-[70px] top-0 bottom-0 w-[240px] pointer-events-auto">
+            <div className="absolute left-[75px] top-0 bottom-0 w-[240px] pointer-events-auto">
 
               <div
                 style={{ top: "190px", transform: "translateY(-50%)" }}
@@ -149,7 +139,7 @@ const Flowchart = () => {
                   Icon={FiLock}
                   title="Security"
                   desc="Protect AI agents with trusted safeguards"
-                  isStrokeOnly={true}
+                  isStrokeOnly
                 />
               </div>
 
@@ -166,8 +156,7 @@ const Flowchart = () => {
 
             </div>
 
-            {/* RIGHT */}
-            <div className="absolute right-[70px] top-0 bottom-0 w-[240px] pointer-events-auto">
+            <div className="absolute right-[75px] top-0 bottom-0 w-[240px] pointer-events-auto">
 
               <div
                 style={{ top: "190px", transform: "translateY(-50%)" }}
@@ -177,7 +166,7 @@ const Flowchart = () => {
                   Icon={LuChartLine}
                   title="Analytics"
                   desc="Gain actionable insights from agent performance."
-                  isStrokeOnly={true}
+                  isStrokeOnly
                 />
               </div>
 
@@ -189,7 +178,7 @@ const Flowchart = () => {
                   Icon={LuScanEye}
                   title="Real-time Monitoring"
                   desc="Track activities instantly with transparent oversight."
-                  isStrokeOnly={true}
+                  isStrokeOnly
                 />
               </div>
 
@@ -200,41 +189,34 @@ const Flowchart = () => {
         </div>
 
         {/* ========================= */}
-        {/* MOBILE VIEW */}
+        {/* MOBILE VIEW — IMPROVED */}
         {/* ========================= */}
-        <div className="md:hidden flex flex-col items-center justify-center gap-8 py-16 px-4">
+
+        <div className="md:hidden flex flex-col items-center justify-center gap-6 py-10 px-3">
 
           {/* TOP CARDS */}
-          <div className="flex justify-center gap-2 w-full max-w-[310px]">
 
+          <div className="flex justify-center gap-2 w-full max-w-[280px]">
             <div className="flex-1">
-              <FeatureCard
-                Icon={FiLock}
-                title="Security"
-                isStrokeOnly={true}
-              />
+              <FeatureCard Icon={FiLock} title="Security" isStrokeOnly />
             </div>
 
             <div className="flex-1">
-              <FeatureCard
-                Icon={LuChartLine}
-                title="Analytics"
-                isStrokeOnly={true}
-              />
+              <FeatureCard Icon={LuChartLine} title="Analytics" isStrokeOnly />
             </div>
-
           </div>
 
           {/* CENTER */}
-          <div className="relative flex items-center justify-center my-6">
 
-            {/* Glass Behind */}
-            <div className="absolute w-[100px] h-[100px] rounded-3xl bg-white/5 border border-white/10 backdrop-blur-xl z-0" />
+          <div className="relative flex items-center justify-center my-2">
 
-            {/* MOBILE SVG — BENT LINES */}
+            <div className="absolute w-[100px] h-[100px] rounded-3xl bg-white/10 border border-white/20 backdrop-blur-xl z-0" />
+
+            {/* MOBILE SVG */}
+
             <svg
-              className="absolute w-[260px] h-[240px] z-0"
-              viewBox="0 0 260 240"
+              className="absolute w-[300px] h-[260px] z-10"
+              viewBox="0 0 300 260"
               fill="none"
             >
 
@@ -252,47 +234,88 @@ const Flowchart = () => {
 
               </defs>
 
-              {/* TOP LEFT */}
+              {/* CENTER DOT */}
+              <circle cx="150" cy="130" r="2" fill="white" />
+
+              {/* ======================= */}
+              {/* TOP LEFT — shifted UP */}
+              {/* ======================= */}
+
               <path
-                d="M 48 45 H 85 C 100 45, 100 105, 130 120"
+                d="
+      M105 124
+      H78
+      C74 124, 70 120, 70 116
+      V60
+    "
                 stroke="url(#mobileLeft)"
-                strokeWidth="2.5"
+                strokeWidth="1.8"
                 strokeDasharray="2 3"
                 fill="none"
               />
 
-              {/* TOP RIGHT */}
+              <circle cx="70" cy="60" r="2.8" fill="white" />
+
+              {/* ======================= */}
+              {/* TOP RIGHT — shifted UP */}
+              {/* ======================= */}
+
               <path
-                d="M 212 45 H 175 C 160 45, 160 105, 130 120"
+                d="
+      M195 124
+      H222
+      C226 124, 230 120, 230 116
+      V60
+    "
                 stroke="url(#mobileRight)"
-                strokeWidth="2.5"
+                strokeWidth="1.8"
                 strokeDasharray="2 3"
                 fill="none"
               />
 
-              {/* BOTTOM LEFT */}
+              <circle cx="230" cy="60" r="2.8" fill="white" />
+
+              {/* ======================= */}
+              {/* BOTTOM LEFT — shifted DOWN */}
+              {/* ======================= */}
+
               <path
-                d="M 48 195 H 85 C 100 195, 100 135, 130 120"
+                d="
+      M105 136
+      H78
+      C74 136, 70 140, 70 144
+      V200
+    "
                 stroke="url(#mobileLeft)"
-                strokeWidth="2.5"
+                strokeWidth="1.8"
                 strokeDasharray="2 3"
                 fill="none"
               />
 
-              {/* BOTTOM RIGHT */}
+              <circle cx="70" cy="200" r="2.8" fill="white" />
+
+              {/* ======================= */}
+              {/* BOTTOM RIGHT — shifted DOWN */}
+              {/* ======================= */}
+
               <path
-                d="M 212 195 H 175 C 160 195, 160 135, 130 120"
+                d="
+      M195 136
+      H222
+      C226 136, 230 140, 230 144
+      V200
+    "
                 stroke="url(#mobileRight)"
-                strokeWidth="2.5"
+                strokeWidth="1.8"
                 strokeDasharray="2 3"
                 fill="none"
               />
 
-              <circle cx="130" cy="120" r="2.5" fill="white" />
+              <circle cx="230" cy="200" r="2.8" fill="white" />
 
             </svg>
+            {/* CENTER LOGO */}
 
-            {/* LOGO */}
             <div className="relative z-20 w-20 h-20 bg-black rounded-2xl flex items-center justify-center border border-white/5">
 
               <img
@@ -301,42 +324,20 @@ const Flowchart = () => {
                 alt="Infer"
               />
 
-              <div className="absolute -top-6 -left-6 text-white text-lg">
-                <BsPlusLg />
-              </div>
-
-              <div className="absolute -top-6 -right-6 text-white text-lg">
-                <BsPlusLg />
-              </div>
-
-              <div className="absolute -bottom-6 -left-6 text-white text-lg">
-                <BsPlusLg />
-              </div>
-
-              <div className="absolute -bottom-6 -right-6 text-white text-lg">
-                <BsPlusLg />
-              </div>
-
             </div>
 
           </div>
 
           {/* BOTTOM CARDS */}
-          <div className="flex justify-center gap-2 w-full max-w-[310px]">
+
+          <div className="flex justify-center gap-2 w-full max-w-[280px]">
 
             <div className="flex-1">
-              <FeatureCard
-                Icon={RiGitBranchLine}
-                title="Automation"
-              />
+              <FeatureCard Icon={RiGitBranchLine} title="Automation" />
             </div>
 
             <div className="flex-1">
-              <FeatureCard
-                Icon={LuScanEye}
-                title="Real-time Monitoring"
-                isStrokeOnly={true}
-              />
+              <FeatureCard Icon={LuScanEye} title="Real-time Monitoring" isStrokeOnly />
             </div>
 
           </div>
@@ -344,50 +345,45 @@ const Flowchart = () => {
         </div>
 
       </div>
+
     </section>
   );
 };
+
+/* FEATURE CARD — Reduced Padding */
 
 const FeatureCard = ({
   Icon,
   title,
   desc,
   isStrokeOnly = false,
-  iconSize = 20,
-  strokeWidth = 2.4,
+  iconSize = 18,
+  strokeWidth = 2.2,
 }) => {
 
-  const gradientId =
-    `feature-grad-${title.toLowerCase().replace(/\s+/g, "-")}`;
+  const uniqueId = useId();
+
+  const gradientId = `feature-grad-${title
+    .toLowerCase()
+    .replace(/\s+/g, "-")}-${uniqueId}`;
 
   return (
 
-    <div className="group w-full glass-badge p-4 rounded-2xl transition-all duration-300 hover:scale-[1.02]">
+    <div className="group w-full glass-badge p-3 rounded-2xl transition-all duration-300 hover:scale-[1.02]">
 
-      <div className="flex items-center gap-3">
+      <div className="flex items-center gap-2">
 
-        {/* Icon */}
-        <div className="flex-shrink-0 w-11 h-11 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center relative overflow-hidden">
+        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-white/5 border border-white/10 flex items-center justify-center relative overflow-hidden">
 
           <svg width="0" height="0" className="absolute">
-
             <defs>
 
-              <linearGradient
-                id={gradientId}
-                x1="0%"
-                y1="0%"
-                x2="100%"
-                y2="100%"
-              >
-
+              <linearGradient id={gradientId} x1="0%" y1="0%" x2="100%" y2="100%">
                 <stop offset="0%" stopColor="white" stopOpacity="1" />
-                <stop offset="100%" stopColor="white" stopOpacity="0.35" />
-
+                <stop offset="100%" stopColor="white" stopOpacity="0.6" />
               </linearGradient>
 
             </defs>
-
           </svg>
 
           <Icon
@@ -396,7 +392,7 @@ const FeatureCard = ({
               ...(isStrokeOnly
                 ? {
                   stroke: `url(#${gradientId})`,
-                  strokeWidth: strokeWidth,
+                  strokeWidth,
                   fill: "transparent",
                 }
                 : {
@@ -428,6 +424,7 @@ const FeatureCard = ({
     </div>
 
   );
+
 };
 
 export default Flowchart;
